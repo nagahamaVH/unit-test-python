@@ -1,5 +1,5 @@
+import convert_roman as cr
 import pytest
-from convert_roman import *
 
 @pytest.fixture
 def know_values():
@@ -60,12 +60,13 @@ def know_values():
     (3940, 'MMMCMXL'),
     (3999, 'MMMCMXCIX'))
 
-    return know_values
+    return known_values
 
 def test_numeric_correspond_roman(know_values):
     '''o valor numerico deve ter um correspondente romano'''
     
-    for numeral, roman in know_values:
-        result_noman = convert_roman.to_roman(numeral)
-        
-        assert  result_roman == roman
+    for integer, roman in know_values:
+        result_roman = cr.to_roman(integer)
+
+        assert roman == result_roman
+    
