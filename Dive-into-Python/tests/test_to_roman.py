@@ -86,4 +86,10 @@ def test_if_number_is_negative():
     '''O número de entrada não deve ser negativo'''
     
     with pytest.raises(ValueError):
-        cr.to_roman(-5)
+        cr.to_roman(-2)
+
+def test_if_number_is_decimal():
+    '''O número de entrada não deve ser decimal'''
+    
+    with pytest.raises(ValueError):
+        cr.to_roman(0.3)

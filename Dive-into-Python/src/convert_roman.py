@@ -19,6 +19,9 @@ def to_roman(number):
     if not 0 < number < 4000:
         raise ValueError('Número invalido (deve estar entre 1 e 3999)')
 
+    if not isinstance(number, int):
+        raise ValueError('Número invalido (valor não inteiro não pode ser convertido)')
+
     for algebraic, roman in limit_numbers_map:
         while number >= algebraic:
             converted_roman += roman
@@ -28,3 +31,4 @@ def to_roman(number):
 
 def from_roman(integer):
     pass
+
