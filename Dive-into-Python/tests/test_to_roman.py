@@ -1,4 +1,4 @@
-import convert_roman as cr
+import src.convert_roman as cr
 import pytest
 
 @pytest.fixture
@@ -63,9 +63,27 @@ def known_values():
     return known_values
 
 def test_if_algebraic_number_correspond_to_roman_number(known_values):
-    '''o valor númerico de entrada deve ter um correspondente romano'''
-    
-    for integer, roman in known_values:
-        converted_roman = cr.to_roman(integer)
+    '''O número algébrico de entrada deve ter um correspondente romano'''
 
+    for algebraic, roman in known_values:
+        converted_roman = cr.to_roman(algebraic)
+        
         assert roman == converted_roman
+
+def test_if_number_is_too_large():
+    '''O número de entrada deve ser inferior a 4000'''
+    
+    with pytest.raises(ValueError):
+        cr.to_roman(4000)
+
+def test_if_number_is_zero():
+    '''O número de entrada não deve ser zero'''
+    
+    with pytest.raises(ValueError):
+        cr.to_roman(0)
+
+def test_if_number_is_negative():
+    '''O número de entrada não deve ser negativo'''
+    
+    with pytest.raises(ValueError):
+        cr.to_roman(-5)
