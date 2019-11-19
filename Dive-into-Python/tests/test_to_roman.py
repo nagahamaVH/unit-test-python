@@ -2,7 +2,7 @@ import convert_roman as cr
 import pytest
 
 @pytest.fixture
-def know_values():
+def known_values():
     known_values = ( (1, 'I'),
     (2, 'II'),
     (3, 'III'),
@@ -62,11 +62,10 @@ def know_values():
 
     return known_values
 
-def test_numeric_correspond_roman(know_values):
-    '''o valor numerico deve ter um correspondente romano'''
+def test_if_algebraic_number_correspond_to_roman_number(known_values):
+    '''o valor númerico de entrada deve ter um correspondente romano'''
     
-    for integer, roman in know_values:
-        result_roman = cr.to_roman(integer)
+    for integer, roman in known_values:
+        converted_roman = cr.to_roman(integer)
 
-        assert roman == result_roman
-    
+        assert roman == converted_roman
